@@ -6,6 +6,7 @@ import AddUser from "./AddUser";
 import calculateTotalFunds from "../functions/calculateTotalFunds";
 import FilterUsers from "./FilterUsers";
 import userService from "../Services/userService";
+import CookieMonster from "./CookieMonster";
 const Home = () => {
     const [userList, setUserList] = useState(dummyUserList);
     const [filteredUsers, setFilteredUsers] = useState([]);

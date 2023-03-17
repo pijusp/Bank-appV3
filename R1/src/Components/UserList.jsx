@@ -59,7 +59,7 @@ const UserList = ({ list, onDelete, setRefresh }) => {
             <article>
                 <h3 className="list-header">Bank users list</h3>
             </article>
-            <table>
+            <table className="table table-bordered">
                 <thead>
                     <tr>
                         <th>Name</th>

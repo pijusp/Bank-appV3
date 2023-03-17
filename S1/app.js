@@ -2,17 +2,30 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const port = 3003;
 
-app.use(cors());
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(
     express.urlencoded({
         extended: true,
     })
 );
 app.use(express.json());
+app.use(cookieParser());
+app.post("/cookie", (req, res) => {
+    if (req.body.delete) {
+        res.cookie("cookieMonster", "", { maxAge: -3600 });
+    } else {
+        res.cookie("cookieMonster", req.body.text, { maxAge: 3600 });
+    }
+
+    res.json({ msg: "OK" });
+});
+
+//API
 app.get("/users", (req, res) => {
     let allData = fs.readFileSync("./data/users.json", "utf8");
     allData = JSON.parse(allData);

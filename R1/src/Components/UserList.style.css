@@ -6,7 +6,7 @@ table {
 
 td,
 th {
-    border: 1px solid #dddddd;
+    border: 1px solid #895b1e;
     text-align: center;
     padding: 8px;
 }
@@ -15,5 +15,6 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 .list-header {
+    margin-top: 10px;
     text-align: center;
 }
