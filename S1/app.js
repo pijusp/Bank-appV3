@@ -3,6 +3,9 @@ const cors = require("cors");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const cookieParser = require("cookie-parser");
+const md5 = require("md5");
+
+// Jei bus laiko, pabandyti su var sha512 = require("sha512");@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 const app = express();
 const port = 3003;
@@ -15,6 +18,8 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
+
+//Login
 app.post("/cookie", (req, res) => {
     if (req.body.delete) {
         res.cookie("cookieMonster", "", { maxAge: -3600 });
@@ -23,6 +28,46 @@ app.post("/cookie", (req, res) => {
     }
 
     res.json({ msg: "OK" });
+});
+app.post("/login", (req, res) => {
+    const users = JSON.parse(fs.readFileSync("./data/accounts.json", "utf8"));
+    const name = req.body.name;
+    const psw = md5(req.body.psw);
+
+    const user = users.find((u) => u.name === name && u.psw === psw);
+    if (user) {
+        const sessionId = md5(uuidv4()); // Should be valid cryptography!!!
+        user.session = sessionId;
+
+        fs.writeFileSync("./data/accounts.json", JSON.stringify(users), "utf8");
+        res.cookie("magicNumberSession", sessionId);
+        res.json({
+            status: "ok",
+            name: user.name,
+        });
+    } else {
+        res.json({
+            status: "error",
+        });
+    }
+});
+
+app.get("/login", (req, res) => {
+    const users = JSON.parse(fs.readFileSync("./data/accounts.json", "utf8"));
+    const user = req.cookies.magicNumberSession
+        ? users.find((u) => u.session === req.cookies.magicNumberSession)
+        : null;
+
+    if (user) {
+        res.json({
+            status: "ok",
+            name: user.name,
+        });
+    } else {
+        res.json({
+            status: "error",
+        });
+    }
 });
 
 //API
