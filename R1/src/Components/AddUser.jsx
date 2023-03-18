@@ -8,10 +8,10 @@ const AddUser = ({ onBack, onAddUser }) => {
     const [lastName, setLastName] = useState("");
 
     const onFirstNameChangeHandler = (e) => {
-        setFirstName(e.target.value);
+        setFirstName(e?.target?.value);
     };
     const onLastNameChangeHandler = (e) => {
-        setLastName(e.target.value);
+        setLastName(e?.target?.value);
     };
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -21,7 +21,7 @@ const AddUser = ({ onBack, onAddUser }) => {
             balance: 0,
         };
         let response = await userService.addNewUser(data);
-        if (response.ok) {
+        if (response?.ok) {
             // Display a success message to the user
             alert("User added successfully");
         } else {

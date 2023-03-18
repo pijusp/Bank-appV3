@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./App.scss";
 import Home from "./Components/Home";
 import CookieMonster from "./Components/CookieMonster";
 import Login from "./Components/Login";

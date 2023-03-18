@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { baseURL } from "../Services/userService";
 
 import axios from "axios";
 
@@ -11,7 +12,7 @@ export const GlobalProvider = ({ children }) => {
 
     const logOut = (_) => {
         axios
-            .post("http://localhost:3003/logout", {}, { withCredentials: true })
+            .post(`${baseURL}/logout`, {}, { withCredentials: true })
             .then((res) => {
                 console.log(res.data);
                 setLogged(false);

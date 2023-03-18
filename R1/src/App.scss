@@ -12,9 +12,15 @@
     max-width: 1280px;
     margin: auto;
 }
-.nav-link {
+.navbar.navbar-expand-lg.navbar-light.bg-light .nav-link {
     cursor: pointer;
+    &.active {
+        color: #32213a;
+        font-weight: bold;
+    }
 }
-.navbar.navbar-expand-lg.navbar-light.bg-light .nav-link:active {
-    color: #32213a;
+.nav-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
