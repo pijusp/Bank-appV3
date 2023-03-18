@@ -32,21 +32,21 @@ const AddUser = ({ onBack, onAddUser }) => {
         onBack();
     };
     return (
-        <div className="form-container">
+        <div className="center">
             <div>
                 <h3>Add User Form</h3>
             </div>
             <form onSubmit={onSubmit}>
-                <div>
-                    <label>First Name:</label>
+                <div className="inputbox">
+                    <span>First Name:</span>
                     <input
                         type="text"
                         value={firstName}
                         onChange={onFirstNameChangeHandler}
                     ></input>
                 </div>
-                <div>
-                    <label>Last Name:</label>
+                <div className="inputbox">
+                    <span>Last Name:</span>
                     <input
                         type="text"
                         value={lastName}

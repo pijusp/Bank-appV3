@@ -1,37 +1,36 @@
-import { createContext, useEffect } from "react";
-import { useMessages } from "../functions/useMessages";
+import { createContext, useState } from "react";
+
+import axios from "axios";
 
 export const Global = createContext();
 
 export const GlobalProvider = ({ children }) => {
-    const [response, setCreate, setEdit, setDelete] = useWrite();
-    const [list, setUpdate] = useRead();
-    const [
-        deleteModal,
-        setDeleteModal,
-        addModal,
-        setAddModal,
-        remModal,
-        setRemModal,
-    ] = useModal();
-    const [messages, setMessage] = useMessages([]);
+    const [route, setRoute] = useState("home");
+    const [logged, setLogged] = useState(null);
+    const [authName, setAuthName] = useState(null);
 
-    useEffect(() => {
-        setUpdate(Date.now());
-        if (null !== response) {
-            setMessage({
-                text: response.message.text,
-                type: response.message.type,
+    const logOut = (_) => {
+        axios
+            .post("http://localhost:3003/logout", {}, { withCredentials: true })
+            .then((res) => {
+                console.log(res.data);
+                setLogged(false);
+                setAuthName(false);
             });
-        }
-    }, [response]);
+    };
 
     return (
         <Global.Provider
             value={{
-                // start modals
-                // end modals
-                messages,
+                // route
+                route,
+                setRoute,
+                // auth
+                authName,
+                setAuthName,
+                logOut,
+                logged,
+                setLogged,
             }}
         >
             {children}

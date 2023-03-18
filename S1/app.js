@@ -69,6 +69,12 @@ app.get("/login", (req, res) => {
         });
     }
 });
+app.post("/logout", (req, res) => {
+    res.cookie("magicNumberSession", "***");
+    res.json({
+        status: "logout",
+    });
+});
 
 //API
 app.get("/users", (req, res) => {

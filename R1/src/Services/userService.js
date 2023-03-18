@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:3003";
+export const baseURL = "http://localhost:3003";
 
 const fetchUsers = async () => {
     let response = await fetch(baseURL + "/users");

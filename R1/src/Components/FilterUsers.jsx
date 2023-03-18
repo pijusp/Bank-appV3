@@ -2,9 +2,7 @@ import React from "react";
 
 const FilterUsers = ({ userList, setFilteredUsers }) => {
     const filterWithBalance = () => {
-        console.log(userList);
         const usersWithBalance = userList.filter((user) => user.balance > 0);
-        console.log(usersWithBalance);
         setFilteredUsers(usersWithBalance);
     };
     const filterWithNoBalance = () => {
