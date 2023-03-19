@@ -10,7 +10,7 @@ function Login() {
     const [name, setName] = useState("");
     const [psw, setPsw] = useState("");
 
-    const { setLogged, setAuthName } = useContext(Global);
+    const { setLogged, setAuthName, setRoute } = useContext(Global);
     const login = (_) => {
         axios
             .post(`${baseURL}/login`, { name, psw }, { withCredentials: true })
@@ -23,6 +23,7 @@ function Login() {
                     setError(null);
                     setLogged(true);
                     setAuthName(res.data.name);
+                    setRoute("bank");
                 } else {
                     setError(true);
                     setUserName(null);
