@@ -24,3 +24,21 @@
     justify-content: space-between;
     width: 100%;
 }
+.main-menu {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    letter-spacing: 50px;
+    font-weight: 100;
+    color: skyblue;
+}
+.statistics {
+    display: flex;
+    justify-content: end;
+    margin: 5px;
+}
+.client-number {
+    padding-right: 10px;
+}

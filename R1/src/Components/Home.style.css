@@ -10,17 +10,9 @@
     margin-right: 10%;
     margin-top: 15px;
 }
-.statistics {
-    display: flex;
-    justify-content: end;
-    margin: 5px;
-}
 .header-center {
     display: flex;
     justify-content: center;
-}
-.client-number {
-    padding-right: 10px;
 }
 .add-user-btn {
     background: #32213a;

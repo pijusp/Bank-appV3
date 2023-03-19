@@ -6,8 +6,7 @@ import AddUser from "./AddUser";
 import calculateTotalFunds from "../functions/calculateTotalFunds";
 import FilterUsers from "./FilterUsers";
 import userService from "../Services/userService";
-import CookieMonster from "./CookieMonster";
-const Home = () => {
+const Home = ({ setNumUsers, setTotalBalance }) => {
     const [userList, setUserList] = useState(dummyUserList);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [shownPage, setShownPage] = useState("list");
@@ -40,6 +39,11 @@ const Home = () => {
         setUserList(userList);
         setFilteredUsers(userList);
     };
+    const totalBalance = calculateTotalFunds(userList).toFixed(2);
+    useEffect(() => {
+        setNumUsers(userList.length);
+        setTotalBalance(totalBalance);
+    }, [setNumUsers, setTotalBalance, userList, totalBalance]);
     return (
         <>
             <article className="article-header">

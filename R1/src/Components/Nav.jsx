@@ -8,18 +8,29 @@ function Nav() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
                 <div className="nav-top">
-                    <div className="navbar-brand">Bank users</div>
+                    <div className="navbar-brand">React bank V3</div>
                     <div className="collapse navbar-collapse">
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <span
-                                    onClick={(_) => setRoute("home")}
+                                    onClick={(_) => setRoute("menu")}
                                     className={
                                         "nav-link" +
-                                        (route === "home" ? " active" : "")
+                                        (route === "menu" ? " active" : "")
                                     }
                                 >
-                                    Home
+                                    Main Menu
+                                </span>
+                            </li>
+                            <li className="nav-item">
+                                <span
+                                    onClick={(_) => setRoute("bank")}
+                                    className={
+                                        "nav-link" +
+                                        (route === "bank" ? " active" : "")
+                                    }
+                                >
+                                    Bank
                                 </span>
                             </li>
                         </ul>
