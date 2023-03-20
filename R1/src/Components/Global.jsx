@@ -17,6 +17,7 @@ export const GlobalProvider = ({ children }) => {
                 console.log(res.data);
                 setLogged(false);
                 setAuthName(false);
+                setRoute("menu");
             });
     };
 

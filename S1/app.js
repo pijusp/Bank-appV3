@@ -70,7 +70,7 @@ app.get("/login", (req, res) => {
     }
 });
 app.post("/logout", (req, res) => {
-    res.cookie("magicNumberSession", "***");
+    res.cookie("magicNumberSession", "", { maxAge: -3600 });
     res.json({
         status: "logout",
     });

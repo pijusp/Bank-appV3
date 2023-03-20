@@ -23,11 +23,11 @@ function Menu({ numUsers, totalBalance }) {
                     Average account balance:
                 </span>{" "}
                 <span className="menu-stat-value">
-                    {totalBalance / numUsers} €
+                    {(totalBalance / numUsers).toFixed(2)} €
                 </span>
             </div>
             <div className="menu-image-container">
-                <img src="../../public/BankImage.jpg" alt="React Bank" />
+                <img src="/BankImage.jpg" alt="React Bank" />
                 <div className="menu-image-text">
                     <h2>About React Bank</h2>
                     <p>
