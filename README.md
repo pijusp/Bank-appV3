@@ -45,7 +45,7 @@ Would like to run this project locally? Open terminal and follow these steps:
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/pijusp/bank-appv3.git
+    git clone https://github.com/pijusp/Bank-appV3.git
     ```
 2. Install NPM packages
     ```sh
